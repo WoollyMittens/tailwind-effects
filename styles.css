@@ -1,0 +1,7 @@
+#header {
+	@apply transition-all;
+
+	[data-direction="up"][data-undocked="true"] & {
+		@apply sticky -top-32 z-above translate-y-32;
+	}
+}

@@ -3,6 +3,95 @@
     localStorage.setItem('twfx', 'off');
 
     const tailwindEffects = {
+        '.klevuLanding': (elem) =>  {
+            new MutationObserver((mutationList, observer) => {
+                let buttons = elem.querySelectorAll('.kuLandingAddToCartBtn');
+                for (let button of buttons) {
+                    let label = button.innerHTML;
+                    if(/add to cart/i.test(label)) { button.setAttribute('data-status', 'add'); }
+                    else if(/adding/i.test(label)) { button.setAttribute('data-status', 'adding'); }
+                    else if(/added to cart/i.test(label)) { button.setAttribute('data-status', 'added'); }
+                }
+            }).observe(elem, { attributes: false, childList: true, subtree: true });
+        },
+        '.tailwind-hero-carousel, .tailwind-products-carousel .block-content': (elem) => {
+            /* CSS:
+	            scroll-snap-type: x mandatory;
+                @media(pointer:fine) { scroll-snap-type: initial; }
+            */
+            let previous = null;
+            let distance = 0;
+            function focus(slide) {
+                if (!slide) slide = closest();
+                slide.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+                // TODO: redraw arrows
+                // TODO: redraw the balls
+            }
+            function closest() {
+                const elemRect = elem.getBoundingClientRect();
+                for (let slide of slides) {
+                    let slideRect = slide.getBoundingClientRect();
+                    let slideCenter = slideRect.left - elemRect.left + slideRect.width / 2;
+                    if (slideCenter > 0 && slideCenter < elemRect.width) return slide;
+                }
+                return slides[slides.length - 1];
+            }
+            function cycle(direction, evt) {
+                if (evt) evt.preventDefault();
+                const currentIndex = slides.indexOf(closest());
+                console.log('currentIndex', currentIndex);
+                const nextIndex = Math.max(Math.min(currentIndex + direction, slides.length - 1), 0);
+                console.log('nextIndex', nextIndex, slides, slides[nextIndex]);
+                focus(slides[nextIndex]);
+            }
+            function capture(evt) {
+                if (Math.abs(distance) > 10) evt.preventDefault();
+            }
+            elem.addEventListener('mousedown', evt => {
+                if (window.matchMedia('(pointer:fine)')) previous = evt.clientX;
+            });
+			elem.addEventListener('mousemove', evt => {
+                if (previous !== null) {
+                    evt.preventDefault(evt);
+                    let current = evt.clientX;
+                    let offset = current - previous;
+                    elem.scrollBy({ left: -offset });
+                    distance += offset;
+                    previous = current;
+                }
+            });
+            elem.addEventListener('mouseup', evt => {
+                previous = null;
+                focus();
+                setTimeout(() => { distance = 0; }, 1000);
+            });
+            // TODO: take slides per page into account
+            // add prev and next buttons
+            const nextButton = document.createElement('button');
+            nextButton.innerHTML = 'Next';
+            nextButton.setAttribute('class', 'twc-next');
+            nextButton.addEventListener('click', cycle.bind(this, 1));
+            elem.parentNode.appendChild(nextButton);
+            const prevButton = document.createElement('button');
+            prevButton.innerHTML = 'Previous';
+            prevButton.setAttribute('class', 'twc-prev');
+            prevButton.addEventListener('click', cycle.bind(this, -1));
+            elem.parentNode.appendChild(prevButton);
+            const indicatorNav = document.createElement('nav');
+            indicatorNav.setAttribute('class', 'twc-nav');
+            elem.parentNode.appendChild(indicatorNav);
+            const indicatorButtons = [];
+            let slides = [...elem.querySelectorAll(':scope > a, form')];
+            for(let index in slides) {
+                slides[index].addEventListener('click', capture.bind(this));
+                let indicatorButton = document.createElement('button');
+                indicatorButton.innerHTML = +index + 1;
+                indicatorButtons.push(indicatorButton);
+                indicatorButton.addEventListener('click', focus.bind(this, slides[index]));
+                indicatorNav.parentNode.appendChild(indicatorButton);
+            }
+            // TODO: auto cycle when idle
+        },
         '.defer-template': (elem) => {
             if (elem.querySelector('template')) elem.setAttribute('data-defered', '');
         },
@@ -261,6 +350,7 @@
     }
     function tailwindHandler(elems, effect) {
         for (let elem of elems) {
+            // TODO: make all of these classes
             effect(elem);
         }
     }

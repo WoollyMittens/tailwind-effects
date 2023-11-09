@@ -1,0 +1,104 @@
+.tailwind-hero-carousel {
+	@apply relative max-w-screen;
+
+	.block-content {
+		@apply flex w-full overflow-auto;
+        scroll-snap-type: x mandatory;
+
+        @media (pointer: fine) {
+            scroll-snap-type: initial;
+        }
+
+        @media (min-width:992px) {
+            scrollbar-width: none;
+    
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+	}
+
+	.block-content > a {
+		@apply inline-flex w-screen min-w-full;
+		scroll-snap-align: start;
+
+		figure {
+			@apply flex items-end lg:items-center justify-start w-full m-0 py-0 px-4 relative;
+
+			@media(min-width:991px) {
+				padding: 0 calc((100vw - 992px + 30px) / 2);
+			}
+		}
+		
+		picture {
+			@apply absolute left-0 top-0 w-full h-full z-10;
+		}
+
+		img {
+			@apply w-full h-full !important;
+			@apply object-cover object-center;
+		}
+
+		figcaption {
+			@apply relative w-full z-20;
+			@apply px-6 md:px-12 py-6 md:py-10;
+			-moz-backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			backdrop-filter: blur(8px);
+			background-color: rgba(19, 25, 44, 0.6);
+			max-width: 520px;
+		}
+
+		h2 {
+			@apply text-white;
+			font-size: 1.75rem;
+
+			@media(min-width:991px) {
+				font-size: 2.75rem;
+			}
+		}
+		
+		p {}
+
+		[class*="btn-primary"] {
+			@apply flex lg:inline-flex uppercase;
+			font-size: 1.125rem;
+			min-height: 4rem;
+		}
+	}
+
+	[data-content-type="products"] {
+
+		.product-items {}
+
+		.product-item {}
+	}
+
+    .twc-next,
+    .twc-prev {
+        @apply absolute top-1/2 -mt-7 w-7 lg:w-10 h-7 lg:h-10 z-50 overflow-hidden whitespace-nowrap indent-10;
+		@apply bg-no-repeat bg-center bg-contain opacity-60 lg:opacity-0 transition-opacity;
+    }
+
+    .twc-next {
+		@apply right-2;
+		background-image: url("../images/icon-20-circleright.svg");
+    }
+    
+    .twc-prev {
+		@apply left-2;
+		background-image: url("../images/icon-20-circleleft.svg");
+    }
+
+    .twc-nav {
+        @apply flex justify-center items-center gap-2 px-4 min-h-8;
+
+        > button {
+            @apply border-none bg-container opacity-100 w-2 h-2 rounded-full overflow-hidden indent-5;
+
+            &[data-active="true"] {
+                @apply bg-tertiary opacity-100 w-3 h-3;
+            }
+        }
+    }
+}

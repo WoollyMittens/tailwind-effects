@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Tailwind Effects Examples</title>
+		<title>Vanilla Effects Examples</title>
 		<meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width"/>
-		<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+		<link rel="stylesheet" type="text/css" href="src/styles.css"/>
 	</head>
 	<body>
 
-		<header class="twfx-toolbar bg-gray-500 sticky top-0 flex z-50 justify-end px-5 py-2">
-			<a class="underline text-white hover:opacity-70" href="vanilla.html">Vanilla Examples</a>
-		</header>
-
 		<!-- Hero Carousel -->
-
+		
 		<style>
 			:scope {
 				--twfx-hero-nav: url('data:image/svg+xml,<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M4 2.046 4.942 1 10 6l-5.058 5L4 9.954 8 6z" fill="rgb(255,255,255)" fill-rule="evenodd"/></svg>');
@@ -26,15 +22,15 @@
 				.twfx-hero>div { scroll-snap-type: initial; }
        		}
 			@media (min-width:768px) {
-				.twfx-hero { aspect-ratio: 16/4; }
+				.twfx-hero { aspect-ratio: 16/9; }
 				.twfx-hero>div { scrollbar-width: none; }
 				.twfx-hero>div::-webkit-scrollbar { display: none; }
-				.twfx-hero figure { padding: 0 max(calc((100vw - 1280px) / 2), 20px); }
+				.twfx-hero figure { padding: 0 calc((100vw - 992px + 30px) / 2); }
 				.twfx-hero figcaption { max-width: 32rem; }
 			}
 		</style>
 
-		<div class="twfx-hero relative w-full aspect-[3/4] md:aspect-[16/4] idle-3000"
+		<div class="twfx-hero relative w-full aspect-[3/4] md:aspect-[16/9] idle-3000"
 			data-slider=":scope>div"
 			data-slides=":scope>div>a"
 			data-nav="hidden md:block absolute top-1/2 -mt-7 w-7 md:w-10 h-7 md:h-10 z-50 overflow-hidden whitespace-nowrap indent-10 bg-no-repeat bg-center bg-contain cursor-pointer opacity-75 transition-opacity"
@@ -51,7 +47,7 @@
 				<a href="#" class="inline-flex w-screen min-w-full">
 					<figure class="flex items-end md:items-center justify-start w-full m-0 py-0 px-0 md:px-4 relative">
 						<picture class="absolute left-0 top-0 w-full h-full z-10">
-							<source srcset="https://placehold.co/1920x540/" media="(min-width:768px)" />
+							<source srcset="https://placehold.co/1920x1080/" media="(min-width:768px)" />
 							<img class="w-full h-full object-cover object-center" width="480" height="640" src="https://placehold.co/480x640/" alt="" />
 						</picture>
 						<figcaption class="relative w-full z-20 px-6 md:px-12 py-6 md:py-10 text-white backdrop-blur md:max-w-[32rem]">
@@ -63,7 +59,7 @@
 				<a href="#" class="inline-flex w-screen min-w-full">
 					<figure class="flex items-end md:items-center justify-start w-full m-0 py-0 px-0 md:px-4 relative">
 						<picture class="absolute left-0 top-0 w-full h-full z-10">
-							<source srcset="https://placehold.co/1920x540/" media="(min-width:768px)" />
+							<source srcset="https://placehold.co/1920x1080/" media="(min-width:768px)" />
 							<img loading="lazy" class="w-full h-full object-cover object-center" width="480" height="640" src="https://placehold.co/480x640/" alt="" />
 						</picture>
 						<figcaption class="relative w-full z-20 px-6 md:px-12 py-6 md:py-10 text-white backdrop-blur md:max-w-[32rem]">
@@ -75,7 +71,7 @@
 				<a href="#" class="inline-flex w-screen min-w-full">
 					<figure class="flex items-end md:items-center justify-start w-full m-0 py-0 px-0 md:px-4 relative">
 						<picture class="absolute left-0 top-0 w-full h-full z-10">
-							<source srcset="https://placehold.co/1920x540/" media="(min-width:768px)" />
+							<source srcset="https://placehold.co/1920x1080/" media="(min-width:768px)" />
 							<img loading="lazy" class="w-full h-full object-cover object-center" width="480" height="640" src="https://placehold.co/480x640/" alt="" />
 						</picture>
 						<figcaption class="relative w-full z-20 px-6 md:px-12 py-6 md:py-10 text-white backdrop-blur md:max-w-[32rem]">

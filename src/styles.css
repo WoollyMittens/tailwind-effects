@@ -1,0 +1,19 @@
+.twfx-hero {}
+.twfx-hero>div {}
+.twfx-hero>div>a {}
+.twfx-hero figure {}
+.twfx-hero figcaption {}
+.twfx-hero figcaption h2 {}
+.twfx-hero figcaption p {}
+.twfx-hero picture {}
+.twfx-hero picture img {}
+.twfx-hero-prev, .twfx-hero-next {}
+.twfx-hero-prev:hover, .twfx-hero-next:hover {}
+.twfx-hero-prev.passive, .twfx-hero-next.passive {}
+.twfx-hero-prev.active, .twfx-hero-next.active {}
+.twfx-hero-prev {}
+.twfx-hero-next {}
+.twfx-hero-dots {}
+.twfx-hero-dots button {}
+.twfx-hero-dots button.passive {}
+.twfx-hero-dots button.active {}

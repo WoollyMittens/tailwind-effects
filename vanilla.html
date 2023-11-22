@@ -3,86 +3,12 @@
 	<head>
 		<title>Vanilla Effects Examples</title>
 		<meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width"/>
-		<link rel="stylesheet" type="text/css" href="src/styles.css"/>
+		<link rel="stylesheet" type="text/css" href="dist/styles.css"/>
 	</head>
 	<body>
 
-		<!-- Hero Carousel -->
+		<!-- Versions without Tailwind will go here. -->
 		
-		<style>
-			:scope {
-				--twfx-hero-nav: url('data:image/svg+xml,<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M4 2.046 4.942 1 10 6l-5.058 5L4 9.954 8 6z" fill="rgb(255,255,255)" fill-rule="evenodd"/></svg>');
-			}
-			.twfx-hero { aspect-ratio: 3/4;}
-			.twfx-hero>div { scroll-snap-type: x mandatory; }
-			.twfx-hero>div>a { scroll-snap-align: start; }
-			.twfx-hero figcaption { background-color: rgba(19, 25, 44, 0.6); }
-			.twfx-hero-prev, .twfx-hero-next { background-image:var(--twfx-hero-nav); }
-			@media (pointer: fine) {
-				.twfx-hero>div { scroll-snap-type: initial; }
-       		}
-			@media (min-width:768px) {
-				.twfx-hero { aspect-ratio: 16/9; }
-				.twfx-hero>div { scrollbar-width: none; }
-				.twfx-hero>div::-webkit-scrollbar { display: none; }
-				.twfx-hero figure { padding: 0 calc((100vw - 992px + 30px) / 2); }
-				.twfx-hero figcaption { max-width: 32rem; }
-			}
-		</style>
-
-		<div class="twfx-hero relative w-full aspect-[3/4] md:aspect-[16/9] idle-3000"
-			data-slider=":scope>div"
-			data-slides=":scope>div>a"
-			data-nav="hidden md:block absolute top-1/2 -mt-7 w-7 md:w-10 h-7 md:h-10 z-50 overflow-hidden whitespace-nowrap indent-10 bg-no-repeat bg-center bg-contain cursor-pointer opacity-75 transition-opacity"
-			data-nav-prev="left-2 rotate-180"
-			data-nav-next="right-2"
-			data-nav-passive="cursor-default opacity-25"
-			data-nav-active="cursor-pointer opacity-75"
-			data-dots="flex md:hidden justify-center items-center gap-2 px-4 h-8"
-			data-dot="bg-black opacity-25 w-3 h-3 rounded-full overflow-hidden indent-5"
-			data-dot-passive="opacity-25 w-3 h-3"
-			data-dot-active="opacity-50 w-4 h-4"
-		>
-			<div class="flex w-full h-full overflow-auto">
-				<a href="#" class="inline-flex w-screen min-w-full">
-					<figure class="flex items-end md:items-center justify-start w-full m-0 py-0 px-0 md:px-4 relative">
-						<picture class="absolute left-0 top-0 w-full h-full z-10">
-							<source srcset="https://placehold.co/1920x1080/" media="(min-width:768px)" />
-							<img class="w-full h-full object-cover object-center" width="480" height="640" src="https://placehold.co/480x640/" alt="" />
-						</picture>
-						<figcaption class="relative w-full z-20 px-6 md:px-12 py-6 md:py-10 text-white backdrop-blur md:max-w-[32rem]">
-							<h2 class="text-2xl md:text-4xl">Lorem Ipsum</h2>
-							<p>Lorem ipsum dolor sit amet</p>
-						</figcaption>
-					</figure>
-				</a>
-				<a href="#" class="inline-flex w-screen min-w-full">
-					<figure class="flex items-end md:items-center justify-start w-full m-0 py-0 px-0 md:px-4 relative">
-						<picture class="absolute left-0 top-0 w-full h-full z-10">
-							<source srcset="https://placehold.co/1920x1080/" media="(min-width:768px)" />
-							<img loading="lazy" class="w-full h-full object-cover object-center" width="480" height="640" src="https://placehold.co/480x640/" alt="" />
-						</picture>
-						<figcaption class="relative w-full z-20 px-6 md:px-12 py-6 md:py-10 text-white backdrop-blur md:max-w-[32rem]">
-							<h2 class="text-2xl md:text-4xl">Dolor Sit</h2>
-							<p>Lorem ipsum dolor sit amet</p>
-						</figcaption>
-					</figure>
-				</a>
-				<a href="#" class="inline-flex w-screen min-w-full">
-					<figure class="flex items-end md:items-center justify-start w-full m-0 py-0 px-0 md:px-4 relative">
-						<picture class="absolute left-0 top-0 w-full h-full z-10">
-							<source srcset="https://placehold.co/1920x1080/" media="(min-width:768px)" />
-							<img loading="lazy" class="w-full h-full object-cover object-center" width="480" height="640" src="https://placehold.co/480x640/" alt="" />
-						</picture>
-						<figcaption class="relative w-full z-20 px-6 md:px-12 py-6 md:py-10 text-white backdrop-blur md:max-w-[32rem]">
-							<h2 class="text-2xl md:text-4xl">Amet</h2>
-							<p>Lorem ipsum dolor sit amet</p>
-						</figcaption>
-					</figure>
-				</a>
-			</div>
-		</div>
-
 		<script src="src/scripts.js"></script>
 	</body>
 </html>

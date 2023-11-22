@@ -54,7 +54,7 @@
                 this.previous = null;
                 this.distance = 0;
                 this.indicatorNav = document.createElement('nav');
-                this.indicatorNav.setAttribute('class', `twfx-hero-dots ${this.dataDots}`);
+                this.indicatorNav.setAttribute('class', `twfx-dots ${this.dataDots}`);
                 this.scroller.parentNode.appendChild(this.indicatorNav);
                 this.indicatorButtons = [];
                 this.slides = [...elem.querySelectorAll(this.dataSlides)];
@@ -72,18 +72,18 @@
                 }
                 this.nextButton = document.createElement('button');
                 this.nextButton.innerHTML = 'Next';
-                this.nextButton.setAttribute('class', `twfx-hero-next ${this.dataNav} ${this.dataNavNext}`);
+                this.nextButton.setAttribute('class', `twfx-next ${this.dataNav} ${this.dataNavNext}`);
                 this.nextButton.addEventListener('click', this.cycle.bind(this, this.slidesPerPage));
                 this.scroller.parentNode.appendChild(this.nextButton);
                 this.prevButton = document.createElement('button');
                 this.prevButton.innerHTML = 'Previous';
-                this.prevButton.setAttribute('class', `twfx-hero-prev ${this.dataNav} ${this.dataNavPrev}`);
+                this.prevButton.setAttribute('class', `twfx-prev ${this.dataNav} ${this.dataNavPrev}`);
                 this.prevButton.addEventListener('click', this.cycle.bind(this, -this.slidesPerPage));
                 this.scroller.parentNode.appendChild(this.prevButton);
                 this.scroller.addEventListener('mousedown', this.startDrag.bind(this));
                 this.scroller.addEventListener('mousemove', this.handleDrag.bind(this));
                 this.scroller.addEventListener('mouseup', this.endDrag.bind(this));
-                this.scroller.addEventListener("touchstart", this.endIdle.bind(this));
+                this.scroller.addEventListener("touchstart", this.endIdle.bind(this), { passive: true });
                 this.scroller.addEventListener('scroll', this.manualScroll.bind(this), { passive: true });
                 this.redraw(this.slides[0]);
                 this.idleDelay = +elem.getAttribute('class').split(' idle-').pop();

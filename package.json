@@ -4,12 +4,16 @@
   "description": "Assigns scripted behaviours to tailwind classes.",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npx tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
+    "build": "npx tailwindcss -i ./src/styles.css -o ./dist/styles.css"
   },
   "keywords": [
     "prototype"
   ],
   "author": "Maurice van Creij",
   "license": "MIT",
-  "dependencies": {}
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
+  }
 }

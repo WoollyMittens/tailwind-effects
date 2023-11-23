@@ -24,17 +24,58 @@
     }
 */
     const tailwindEffects = {
-        '.klevuLanding': class {
+        '.twfx-accordion': class {
             constructor(elem) {
-                new MutationObserver((mutationList, observer) => {
-                    let buttons = elem.querySelectorAll('.kuLandingAddToCartBtn');
-                    for (let button of buttons) {
-                        let label = button.innerHTML;
-                        if(/add to cart/i.test(label)) { button.setAttribute('data-status', 'add'); }
-                        else if(/adding/i.test(label)) { button.setAttribute('data-status', 'adding'); }
-                        else if(/added to cart/i.test(label)) { button.setAttribute('data-status', 'added'); }
-                    }
-                }).observe(elem, { attributes: false, childList: true, subtree: true });
+                this.dataTitle = elem.getAttribute('data-title');
+                this.dataPassive = elem.getAttribute('data-passive');
+                this.dataActive = elem.getAttribute('data-active');
+                this.dataDescriptions = elem.getAttribute('data-descriptions');
+                this.dataClosed = elem.getAttribute('data-closed');
+                this.dataOpen = elem.getAttribute('data-open');
+                const titles = [...elem.querySelectorAll(this.dataTitle)];
+                const descriptions = [...elem.querySelectorAll(this.dataDescriptions)];
+                for (let index in titles) {
+                    titles[index].addEventListener('click', this.toggle.bind(this, titles[index], descriptions[index]));
+                }
+            }
+            toggle(title, description, evt) {
+                evt.preventDefault();
+                title.className = title.className.includes(this.dataPassive) ?
+                    title.className.replace(this.dataPassive, this.dataActive):
+                    title.className.replace(this.dataActive, this.dataPassive);
+                    console.log('description.className', description.className + ' - ' + this.dataClosed + ' - ' + description.className.includes(this.dataClosed));
+                description.className = description.className.includes(this.dataClosed) ?
+                    description.className.replace(this.dataClosed, this.dataOpen):
+                    description.className.replace(this.dataOpen, this.dataClosed);
+            }
+        },
+        '.twfx-toggle': class {
+            constructor(elem) {
+                this.dataPassive = elem.getAttribute('data-passive');
+                this.dataActive = elem.getAttribute('data-active');
+                this.dataParent = elem.getAttribute('data-parent');
+                this.dataTarget = elem.getAttribute('data-target');
+                this.dataClosed = elem.getAttribute('data-closed');
+                this.dataOpen = elem.getAttribute('data-open');
+                const parent = this.parent(elem, this.dataParent);
+                const target = parent.querySelector(this.dataTarget);
+                elem.addEventListener('click', this.toggle.bind(this, elem, target));
+            }
+            parent(elem, levels) {
+                if (isNaN(levels)) return document.querySelector(levels);
+                let parent = elem;
+                while(+levels--) { parent = parent.parentNode }
+                return parent;
+            }
+            toggle(elem, target, evt) {
+                evt.preventDefault();
+                console.log('toggle');
+                elem.className = elem.className.includes(this.dataPassive) ?
+                    elem.className.replace(this.dataPassive, this.dataActive):
+                    elem.className.replace(this.dataActive, this.dataPassive);
+                target.className = target.className.includes(this.dataClosed) ?
+                    target.className.replace(this.dataClosed, this.dataOpen):
+                    target.className.replace(this.dataOpen, this.dataClosed);
             }
         },
         '.twfx-hero, .twfx-carousel': class {
@@ -160,6 +201,19 @@
             }
             capture(evt) {
                 if (Math.abs(this.distance) > 10) evt.preventDefault();
+            }
+        },
+        '.klevuLanding': class {
+            constructor(elem) {
+                new MutationObserver((mutationList, observer) => {
+                    let buttons = elem.querySelectorAll('.kuLandingAddToCartBtn');
+                    for (let button of buttons) {
+                        let label = button.innerHTML;
+                        if(/add to cart/i.test(label)) { button.setAttribute('data-status', 'add'); }
+                        else if(/adding/i.test(label)) { button.setAttribute('data-status', 'adding'); }
+                        else if(/added to cart/i.test(label)) { button.setAttribute('data-status', 'added'); }
+                    }
+                }).observe(elem, { attributes: false, childList: true, subtree: true });
             }
         },
         '.defer-template': class {

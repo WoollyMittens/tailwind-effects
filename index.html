@@ -15,7 +15,7 @@
 	</head>
 	<body>
 
-		<header class="twfx-toolbar bg-gray-500 sticky top-0 flex z-50 justify-end px-5 py-2">
+		<header class="twfx-toolbar bg-neutral-500 sticky top-0 flex z-50 justify-end px-5 py-2">
 			<a class="underline text-white hover:opacity-70" href="vanilla.html">Vanilla Examples</a>
 		</header>
 
@@ -34,7 +34,7 @@
 		<div class="twfx-hero relative w-full aspect-[3/4] md:aspect-[16/4] idle-3000"
 			data-slider=":scope>div"
 			data-slides=":scope>div>a"
-			data-nav="hidden md:block absolute top-1/2 -mt-5 w-10 h-10 z-50 overflow-hidden whitespace-nowrap indent-10 bg-no-repeat bg-center bg-contain cursor-pointer opacity-75 transition-opacity"
+			data-nav="hidden md:block absolute top-1/2 -mt-5 w-10 h-10 z-40 overflow-hidden whitespace-nowrap indent-10 bg-no-repeat bg-center bg-contain cursor-pointer opacity-75 transition-opacity"
 			data-nav-prev="arrow-light left-2 rotate-180"
 			data-nav-next="arrow-light right-2"
 			data-nav-passive="cursor-default opacity-25"
@@ -51,7 +51,7 @@
 							<source srcset="dist/1920x540.svg" media="(min-width:768px)" />
 							<img class="w-full h-full object-cover object-center" width="480" height="640" src="dist/480x640.svg" alt="" />
 						</picture>
-						<figcaption class="relative w-full z-20 px-6 md:px-12 py-6 md:py-10 text-white bg-gray-700/60 backdrop-blur md:max-w-[32rem]">
+						<figcaption class="relative w-full z-20 px-6 md:px-12 py-6 md:py-10 text-white bg-neutral-700/60 backdrop-blur md:max-w-[32rem]">
 							<h2 class="text-2xl md:text-4xl font-bold">Lorem Ipsum</h2>
 							<p>Lorem ipsum dolor sit amet</p>
 						</figcaption>
@@ -63,7 +63,7 @@
 							<source srcset="dist/1920x540.svg" media="(min-width:768px)" />
 							<img loading="lazy" class="w-full h-full object-cover object-center" width="480" height="640" src="dist/480x640.svg" alt="" />
 						</picture>
-						<figcaption class="relative w-full z-20 px-6 md:px-12 py-6 md:py-10 text-white bg-gray-700/60 backdrop-blur md:max-w-[32rem]">
+						<figcaption class="relative w-full z-20 px-6 md:px-12 py-6 md:py-10 text-white bg-neutral-700/60 backdrop-blur md:max-w-[32rem]">
 							<h2 class="text-2xl md:text-4xl font-bold">Dolor Sit</h2>
 							<p>Lorem ipsum dolor sit amet</p>
 						</figcaption>
@@ -75,7 +75,7 @@
 							<source srcset="dist/1920x540.svg" media="(min-width:768px)" />
 							<img loading="lazy" class="w-full h-full object-cover object-center" width="480" height="640" src="dist/480x640.svg" alt="" />
 						</picture>
-						<figcaption class="relative w-full z-20 px-6 md:px-12 py-6 md:py-10 text-white bg-gray-700/60 backdrop-blur md:max-w-[32rem]">
+						<figcaption class="relative w-full z-20 px-6 md:px-12 py-6 md:py-10 text-white bg-neutral-700/60 backdrop-blur md:max-w-[32rem]">
 							<h2 class="text-2xl md:text-4xl font-bold">Amet</h2>
 							<p>Lorem ipsum dolor sit amet</p>
 						</figcaption>
@@ -85,7 +85,6 @@
 		</div>
 
 		<section class="max-w-[1320px] mx-auto py-10 px-5">
-
 
 			<!-- Product Carousel -->
 
@@ -192,7 +191,7 @@
 
 			<h2 class="text-2xl md:text-4xl leading-none font-bold mb-4 pb-4 border-b border-black">Lorem Ipsum</h2>
 			<article class="grid grid-cols-[1fr] md:grid-cols-[1fr_3fr] gap-x-4 mb-10">
-				<img loading="lazy" class="w-full h-auto" width="320" height="240" src="dist/320x240.svg" alt="" />
+				<img loading="lazy" class="w-full h-auto mb-4" width="320" height="240" src="dist/320x240.svg" alt="" />
 				<div>
 					<p class="mb-4 text-sm md:text-base">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -256,7 +255,8 @@
 				data-open="overflow-auto max-h-[75vh]"
 			>
 				<dt class="font-bold border-t border-black py-2 cursor-pointer flex items-center justify-between gap-2 after:inline-block after:content-[' '] after:w-4 after:h-4 after:bg-contain after:bg-no-repeat after:bg-center after:rotate-90">Lorem ipsum dolor sit amet?</dt>
-				<dd class="overflow-hidden max-h-0 transition-all">
+				<dd class="md:grid grid-cols-[1fr_3fr] grid-rows-[auto_1fr] gap-x-4 overflow-hidden max-h-0 transition-all">
+					<img loading="lazy" class="w-full h-auto row-span-2 mb-4" width="320" height="240" src="dist/320x240.svg" alt="" />
 					<p class="mb-4">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -267,7 +267,8 @@
 					</p>
 				</dd>
 				<dt class="font-bold border-t border-black py-2 cursor-pointer flex items-center justify-between gap-2 after:inline-block after:content-[' '] after:w-4 after:h-4 after:bg-contain after:bg-no-repeat after:bg-center after:rotate-90">Sed ut perspiciatis unde omnis iste natus error?</dt>
-				<dd class="overflow-hidden max-h-0 transition-all">
+				<dd class="md:grid grid-cols-[1fr_3fr] grid-rows-[auto_1fr] gap-x-4 overflow-hidden max-h-0 transition-all">
+					<img loading="lazy" class="w-full h-auto row-span-2 mb-4" width="320" height="240" src="dist/320x240.svg" alt="" />
 					<p class="mb-4">
 						Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
 						eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem 
@@ -281,7 +282,8 @@
 					</p>
 				</dd>
 				<dt class="font-bold border-t border-black py-2 cursor-pointer flex items-center justify-between gap-2 after:inline-block after:content-[' '] after:w-4 after:h-4 after:bg-contain after:bg-no-repeat after:bg-center after:rotate-90">At vero eos et accusamus et iusto odio dignissimos?</dt>
-				<dd class="overflow-hidden max-h-0 transition-all">
+				<dd class="md:grid grid-cols-[1fr_3fr] grid-rows-[auto_1fr] gap-x-4 overflow-hidden max-h-0 transition-all">
+					<img loading="lazy" class="w-full h-auto row-span-2 mb-4" width="320" height="240" src="dist/320x240.svg" alt="" />
 					<p class="mb-4">
 						At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos 
 						dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt 
@@ -297,6 +299,60 @@
 			</dl>
 
 			<!-- Tab Strip -->
+
+			<h2 class="text-2xl md:text-4xl leading-none font-bold mb-4">Lorem Ipsum</h2>
+			<dl class="twfx-tabs flex flex-wrap gap-px after:content-[''] after:block after:order-1 after:border-b after:border-neutral-400 after:grow mb-10"
+				data-title=":scope > dt"
+				data-passive="text-neutral-500 hover:text-neutral-600 bg-neutral-200 hover:bg-neutral-300 border-neutral-400 border cursor-pointer"
+				data-active="text-black bg-white border-neutral-400 border-b-white border"
+				data-descriptions=":scope > dd"
+				data-closed="hidden"
+				data-open="block md:grid"
+				data-exclusive
+			>
+				<dt class="inline-flex items-center justify-center order-1 px-4 py-2 text-black bg-white border-neutral-400 border-b-white border">Lorem ipsum</dt>
+				<dd class="block md:grid grid-cols-[1fr_3fr] grid-rows-[auto_1fr] gap-x-4 order-10 p-4 -mt-px border-neutral-400 border-r border-b border-l">
+					<img loading="lazy" class="w-full h-auto mb-4 md:mb-0 row-span-2" width="320" height="240" src="dist/320x240.svg" alt="" />
+					<p class="mb-4 self-start">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+					</p>
+					<p class="self-start">
+						Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+				</dd>
+				<dt class="inline-flex items-center justify-center order-1 px-4 py-2 text-neutral-500 hover:text-neutral-600 bg-neutral-200 hover:bg-neutral-300 border-neutral-400 border cursor-pointer">Sed ut</dt>
+				<dd class="hidden grid-cols-[1fr_3fr] grid-rows-[auto_1fr] gap-x-4 order-10 p-4 -mt-px border-neutral-400 border-r border-b border-l">
+					<img loading="lazy" class="w-full h-auto mb-4 md:mb-0 row-span-2" width="320" height="240" src="dist/320x240.svg" alt="" />
+					<p class="mb-4">
+						Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
+						eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem 
+						quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
+					</p>
+					<p>
+						Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi 
+						tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem 
+						ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea 
+						voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+					</p>
+				</dd>
+				<dt class="inline-flex items-center justify-center order-1 px-4 py-2 text-neutral-500 hover:text-neutral-600 bg-neutral-200 hover:bg-neutral-300 border-neutral-400 border cursor-pointer">At vero</dt>
+				<dd class="hidden grid-cols-[1fr_3fr] grid-rows-[auto_1fr] gap-x-4 order-10 p-4 -mt-px border-neutral-400 border-r border-b border-l">
+					<img loading="lazy" class="w-full h-auto mb-4 md:mb-0 row-span-2" width="320" height="240" src="dist/320x240.svg" alt="" />
+					<p class="mb-4">
+						At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos 
+						dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt 
+						mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+					</p>
+					<p>
+						Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas 
+						assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe 
+						eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, 
+						ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+					</p>
+				</dd>
+			</dl>
 
 		</section>
 

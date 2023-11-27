@@ -15,7 +15,19 @@
 	</head>
 	<body>
 
-		<header class="twfx-toolbar bg-neutral-500 sticky top-0 flex z-50 justify-end px-5 py-2">
+		<!-- Sticky nav -->
+
+		<header class="twfx-direction bg-neutral-500 sticky top-0 flex gap-4 z-50 justify-between px-5 py-2 transition-all"
+			data-down="sticky -top-10"
+			data-up="sticky top-0"
+		>
+			<nav class="flex gap-4">
+				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#carousel">Product Carousel</a>
+				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#readmore">Read More</a>
+				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#accordion">FAQ Accordion</a>
+				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#tabs">Tab Strip</a>
+				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#reveal">Reveal</a>
+			</nav>
 			<a class="underline text-white hover:opacity-70" href="vanilla.html">Vanilla Examples</a>
 		</header>
 
@@ -97,7 +109,7 @@
 					.twfx-carousel>div::-webkit-scrollbar { display: none; }
 				}
 			</style>
-			<h2 class="text-2xl md:text-4xl leading-none font-bold mb-4 pb-4 border-b border-black">Lorem Ipsum</h2>
+			<h2 id="carousel" class="text-2xl md:text-4xl leading-none font-bold mb-4 pb-4 border-b border-black">Product Carousel</h2>
 			<div class="twfx-carousel relative -mx-2 mb-10"
 				data-slider=":scope>div"
 				data-slides=":scope>div>article"
@@ -118,8 +130,8 @@
 							<img loading="lazy" class="w-full h-auto" width="160" height="120" src="dist/160x120.svg" alt="" />
 						</picture>
 						<h3 class="text-xl md:text-2xl font-bold">Lorem Ipsum</h3>
-						<p class="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Read more</a></p>
+						<p class="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Shop now</a></p>
 					</article>
 					<article class="inline-flex flex-col gap-4 min-w-[50%] md:min-w-[25%] basis-[50%] md:basis-[25%] px-2 snap-start">
 						<picture>
@@ -128,7 +140,7 @@
 						</picture>
 						<h3 class="text-xl md:text-2xl font-bold">Dolor Sit</h3>
 						<p class="text-sm md:text-base">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Read more</a></p>
+						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Shop now</a></p>
 					</article>
 					<article class="inline-flex flex-col gap-4 min-w-[50%] md:min-w-[25%] basis-[50%] md:basis-[25%] px-2 snap-start">
 						<picture>
@@ -137,7 +149,7 @@
 						</picture>
 						<h3 class="text-xl md:text-2xl font-bold">Amet</h3>
 						<p class="text-sm md:text-base">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Read more</a></p>
+						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Shop now</a></p>
 					</article>
 					<article class="inline-flex flex-col gap-4 min-w-[50%] md:min-w-[25%] basis-[50%] md:basis-[25%] px-2 snap-start">
 						<picture>
@@ -146,7 +158,7 @@
 						</picture>
 						<h3 class="text-xl md:text-2xl font-bold">Consectetur</h3>
 						<p class="text-sm md:text-base">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Read more</a></p>
+						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Shop now</a></p>
 					</article>
 					<article class="inline-flex flex-col gap-4 min-w-[50%] md:min-w-[25%] basis-[50%] md:basis-[25%] px-2 snap-start">
 						<picture>
@@ -154,8 +166,8 @@
 							<img loading="lazy" class="w-full h-auto" width="160" height="120" src="dist/160x120.svg" alt="" />
 						</picture>
 						<h3 class="text-xl md:text-2xl font-bold">Lorem Ipsum</h3>
-						<p class="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Read more</a></p>
+						<p class="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Shop now</a></p>
 					</article>
 					<article class="inline-flex flex-col gap-4 min-w-[50%] md:min-w-[25%] basis-[50%] md:basis-[25%] px-2 snap-start">
 						<picture>
@@ -164,7 +176,7 @@
 						</picture>
 						<h3 class="text-xl md:text-2xl font-bold">Dolor Sit</h3>
 						<p class="text-sm md:text-base">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Read more</a></p>
+						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Shop now</a></p>
 					</article>
 					<article class="inline-flex flex-col gap-4 min-w-[50%] md:min-w-[25%] basis-[50%] md:basis-[25%] px-2 snap-start">
 						<picture>
@@ -173,7 +185,7 @@
 						</picture>
 						<h3 class="text-xl md:text-2xl font-bold">Amet</h3>
 						<p class="text-sm md:text-base">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Read more</a></p>
+						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Shop now</a></p>
 					</article>
 					<article class="inline-flex flex-col gap-4 min-w-[50%] md:min-w-[25%] basis-[50%] md:basis-[25%] px-2 snap-start">
 						<picture>
@@ -182,25 +194,25 @@
 						</picture>
 						<h3 class="text-xl md:text-2xl font-bold">Consectetur</h3>
 						<p class="text-sm md:text-base">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Read more</a></p>
+						<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Shop now</a></p>
 					</article>
 				</div>
 			</div>
 
-			<!-- Expand Summary -->
+			<!-- Read more -->
 
-			<h2 class="text-2xl md:text-4xl leading-none font-bold mb-4 pb-4 border-b border-black">Lorem Ipsum</h2>
+			<h2 id="readmore" class="text-2xl md:text-4xl leading-none font-bold mb-4 pb-4 border-b border-black">Read More</h2>
 			<article class="grid grid-cols-[1fr] md:grid-cols-[1fr_3fr] gap-x-4 mb-10">
 				<img loading="lazy" class="w-full h-auto mb-4" width="320" height="240" src="dist/320x240.svg" alt="" />
 				<div>
 					<p class="mb-4 text-sm md:text-base">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. 
 						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 						Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
 						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 					</p>
 					<p class="mb-4 text-sm md:text-base">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. 
 						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 						Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
 						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -240,7 +252,7 @@
 
 			<!-- FAQ Accordion -->
 
-			<h2 class="text-2xl md:text-4xl leading-none font-bold mb-4">Lorem Ipsum</h2>
+			<h2 id="accordion" class="text-2xl md:text-4xl leading-none font-bold mb-4">FAQ Accordion</h2>
 			<style>
 				.twfx-accordion dt:after { background-image: var(--arrow-dark); }
 				.twfx-accordion dd { scrollbar-width: none; }
@@ -258,7 +270,7 @@
 				<dd class="md:grid grid-cols-[1fr_3fr] grid-rows-[auto_1fr] gap-x-4 overflow-hidden max-h-0 transition-all">
 					<img loading="lazy" class="w-full h-auto row-span-2 mb-4" width="320" height="240" src="dist/320x240.svg" alt="" />
 					<p class="mb-4">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. 
 						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 					</p>
 					<p class="mb-4">
@@ -300,7 +312,7 @@
 
 			<!-- Tab Strip -->
 
-			<h2 class="text-2xl md:text-4xl leading-none font-bold mb-4">Lorem Ipsum</h2>
+			<h2 id="tabs" class="text-2xl md:text-4xl leading-none font-bold mb-4">Tab Strip</h2>
 			<dl class="twfx-tabs flex flex-wrap gap-px after:content-[''] after:block after:order-1 after:border-b after:border-neutral-400 after:grow mb-10"
 				data-title=":scope > dt"
 				data-passive="text-neutral-500 hover:text-neutral-600 bg-neutral-200 hover:bg-neutral-300 border-neutral-400 border cursor-pointer"
@@ -314,7 +326,7 @@
 				<dd class="block md:grid grid-cols-[1fr_3fr] grid-rows-[auto_1fr] gap-x-4 order-10 p-4 -mt-px border-neutral-400 border-r border-b border-l">
 					<img loading="lazy" class="w-full h-auto mb-4 md:mb-0 row-span-2" width="320" height="240" src="dist/320x240.svg" alt="" />
 					<p class="mb-4 self-start">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. 
 						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 					</p>
 					<p class="self-start">
@@ -353,6 +365,60 @@
 					</p>
 				</dd>
 			</dl>
+
+			<!-- Reveal -->
+
+			<h2 id="reveal" class="text-2xl md:text-4xl leading-none font-bold mb-4 pb-4 border-b border-black">Reveal</h2>
+			<div class="flex flex-col md:flex-row gap-4 mb-10">
+				<article class="twfx-reveal inline-flex flex-col gap-4 basis-1/4 transition-all delay-0 duration-500 opacity-0 translate-y-1/4"
+					data-passive="opacity-0 translate-y-1/4"
+					data-active="opacity-100 translate-y-0"
+				>
+					<picture>
+						<source srcset="dist/320x240.svg" media="(min-width:768px)" />
+						<img loading="lazy" class="w-full h-auto" width="160" height="120" src="dist/160x120.svg" alt="" />
+					</picture>
+					<h3 class="text-xl md:text-2xl font-bold">Lorem Ipsum</h3>
+					<p class="text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+					<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Shop now</a></p>
+				</article>
+				<article class="twfx-reveal inline-flex flex-col gap-4 basis-1/4 transition-all delay-100 duration-500 opacity-0 translate-y-1/4"
+					data-passive="opacity-0 translate-y-1/4"
+					data-active="opacity-100 translate-y-0"
+				>
+					<picture>
+						<source srcset="dist/320x240.svg" media="(min-width:768px)" />
+						<img loading="lazy" class="w-full h-auto" width="160" height="120" src="dist/160x120.svg" alt="" />
+					</picture>
+					<h3 class="text-xl md:text-2xl font-bold">Dolor Sit</h3>
+					<p class="text-sm md:text-base">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Shop now</a></p>
+				</article>
+				<article class="twfx-reveal inline-flex flex-col gap-4 basis-1/4 transition-all delay-200 duration-500 opacity-0 translate-y-1/4"
+					data-passive="opacity-0 translate-y-1/4"
+					data-active="opacity-100 translate-y-0"
+				>
+					<picture>
+						<source srcset="dist/320x240.svg" media="(min-width:768px)" />
+						<img loading="lazy" class="w-full h-auto" width="160" height="120" src="dist/160x120.svg" alt="" />
+					</picture>
+					<h3 class="text-xl md:text-2xl font-bold">Amet</h3>
+					<p class="text-sm md:text-base">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+					<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Shop now</a></p>
+				</article>
+				<article class="twfx-reveal inline-flex flex-col gap-4 basis-1/4 transition-all delay-300 duration-500 opacity-0 translate-y-1/4"
+					data-passive="opacity-0 translate-y-1/4"
+					data-active="opacity-100 translate-y-0"
+				>
+					<picture>
+						<source srcset="dist/320x240.svg" media="(min-width:768px)" />
+						<img loading="lazy" class="w-full h-auto" width="160" height="120" src="dist/160x120.svg" alt="" />
+					</picture>
+					<h3 class="text-xl md:text-2xl font-bold">Consectetur</h3>
+					<p class="text-sm md:text-base">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Shop now</a></p>
+				</article>
+			</div>
 
 		</section>
 

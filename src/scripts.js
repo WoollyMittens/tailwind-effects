@@ -2,11 +2,74 @@
 
     localStorage.setItem('twfx', 'off');
 
-    // TODO: intersect (single|reversible)
-    // TODO: undock (safe+up|down)
     // TODO: +/- number increment
+    // TODO: if the data-attribs are not defined, don't replace classes but apply the attributes directly for vanilla mode. To tidy this up, create getters and setters for the classname
+
+    const tailwindProps = {};
 
     const tailwindEffects = {
+        '.twfx-direction': class {
+            constructor(elem) {
+                if (!tailwindProps.directionObserver) {
+                    tailwindProps.directionPrevious = 0;
+                    tailwindProps.directionElements = [];
+                    tailwindProps.directionObserver = this.direction.bind(this);
+                    window.addEventListener('scroll', tailwindProps.directionObserver, { capture:false, passive:true });
+                }
+                tailwindProps.directionElements.push(elem);
+            }
+            direction(evt) {
+                console.log('scrolled', evt, window.scrollY);
+                const position = window.scrollY;
+                for (let element of tailwindProps.directionElements) {
+                    let dataUp = element.getAttribute('data-up');
+                    let dataDown = element.getAttribute('data-down');
+                    element.className = (position >= tailwindProps.directionPrevious) ? 
+                        element.className.replace(dataUp, dataDown):
+                        element.className.replace(dataDown, dataUp);
+                }
+                tailwindProps.directionPrevious = position;
+            }
+        },
+        '.twfx-scrollto': class {
+            constructor(elem) {
+                elem.addEventListener('click', this.scroll.bind(this, elem));
+            }
+            scroll(elem, evt) {
+                evt.preventDefault();
+                const id = elem.getAttribute('href').split('#').pop();
+                const target = document.getElementById(id);
+                if (target) target.scrollIntoView({ behavior:"smooth", block:"center", inline:"nearest" });
+            }
+        },
+        '.twfx-reveal': class {
+            constructor(elem) {
+                this.dataPassive = elem.getAttribute('data-passive');
+                this.dataActive = elem.getAttribute('data-active');
+                this.observer.observe(elem);
+            }
+            get observer() {
+                if (!tailwindProps.revealObserver) {
+                    tailwindProps.revealObserver = new IntersectionObserver(
+                        this.update.bind(this), 
+                        {root:null, rootMargin:"0px 0px 0px 0px", threshold:[0.5]}
+                    );
+                }
+                return tailwindProps.revealObserver;
+            }
+            set observer(value) {
+                tailwindProps.revealObserver = value;
+            }
+            update(intersections, observer) {
+                for (let intersection of intersections) {
+                    if (intersection.isIntersecting) {
+                        console.log('reveal', intersection);
+                        intersection.target.className = intersection.target.className.replace(this.dataPassive, this.dataActive);
+                        observer.unobserve(intersection.target);
+                    }
+                }
+            }
+        },
         '.twfx-accordion, .twfx-tabs': class {
             constructor(elem) {
                 this.dataTitle = elem.getAttribute('data-title');

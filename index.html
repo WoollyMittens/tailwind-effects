@@ -18,15 +18,15 @@
 		<!-- Sticky nav -->
 
 		<header class="twfx-direction bg-neutral-500 sticky top-0 flex gap-4 z-50 justify-between px-5 py-2 transition-all"
-			data-down="sticky -top-10"
-			data-up="sticky top-0"
-		>
-			<nav class="flex gap-4">
+			data-down="sticky -top-full md:-top-10"
+			data-up="sticky top-0">
+			<nav class="flex flex-wrap gap-x-4 gap-y">
 				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#carousel">Product Carousel</a>
 				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#readmore">Read More</a>
 				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#accordion">FAQ Accordion</a>
 				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#tabs">Tab Strip</a>
 				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#reveal">Reveal</a>
+				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#increment">Increment</a>
 			</nav>
 			<a class="underline text-white hover:opacity-70" href="vanilla.html">Vanilla Examples</a>
 		</header>
@@ -54,8 +54,7 @@
 			data-dots="flex md:hidden justify-center items-center gap-2 px-4 h-8"
 			data-dot="bg-black opacity-25 w-3 h-3 rounded-full overflow-hidden indent-5"
 			data-dot-passive="opacity-25 w-3 h-3"
-			data-dot-active="opacity-50 w-4 h-4"
-		>
+			data-dot-active="opacity-50 w-4 h-4">
 			<div class="flex w-full h-full overflow-auto snap-x snap-mandatory">
 				<a href="#" class="inline-flex w-screen min-w-full snap-start">
 					<figure class="flex items-end md:items-center justify-start w-full m-0 py-0 px-0 md:px-4 relative">
@@ -121,8 +120,7 @@
 				data-dots="flex md:hidden justify-center items-center gap-2 px-4 h-8"
 				data-dot="bg-black opacity-25 w-3 h-3 rounded-full overflow-hidden indent-5"
 				data-dot-passive="opacity-25 w-3 h-3"
-				data-dot-active="opacity-50 w-4 h-4"
-			>
+				data-dot-active="opacity-50 w-4 h-4">
 				<div class="flex w-full overflow-auto snap-x snap-mandatory">
 					<article class="inline-flex flex-col gap-4 min-w-[50%] md:min-w-[25%] basis-[50%] md:basis-[25%] px-2 snap-start">
 						<picture>
@@ -223,8 +221,7 @@
 						data-parent="2"
 						data-target=".extra-content"
 						data-closed="hidden"
-						data-open="block"
-					>
+						data-open="block">
 						Read more
 					</a>
 				</div>
@@ -264,8 +261,7 @@
 				data-active="after:-rotate-90"
 				data-descriptions=":scope > dd"
 				data-closed="overflow-hidden max-h-0"
-				data-open="overflow-auto max-h-[75vh]"
-			>
+				data-open="overflow-auto max-h-[75vh]">
 				<dt class="font-bold border-t border-black py-2 cursor-pointer flex items-center justify-between gap-2 after:inline-block after:content-[' '] after:w-4 after:h-4 after:bg-contain after:bg-no-repeat after:bg-center after:rotate-90">Lorem ipsum dolor sit amet?</dt>
 				<dd class="md:grid grid-cols-[1fr_3fr] grid-rows-[auto_1fr] gap-x-4 overflow-hidden max-h-0 transition-all">
 					<img loading="lazy" class="w-full h-auto row-span-2 mb-4" width="320" height="240" src="dist/320x240.svg" alt="" />
@@ -320,8 +316,7 @@
 				data-descriptions=":scope > dd"
 				data-closed="hidden"
 				data-open="block md:grid"
-				data-exclusive
-			>
+				data-exclusive>
 				<dt class="inline-flex items-center justify-center order-1 px-4 py-2 text-black bg-white border-neutral-400 border-b-white border">Lorem ipsum</dt>
 				<dd class="block md:grid grid-cols-[1fr_3fr] grid-rows-[auto_1fr] gap-x-4 order-10 p-4 -mt-px border-neutral-400 border-r border-b border-l">
 					<img loading="lazy" class="w-full h-auto mb-4 md:mb-0 row-span-2" width="320" height="240" src="dist/320x240.svg" alt="" />
@@ -372,8 +367,7 @@
 			<div class="flex flex-col md:flex-row gap-4 mb-10">
 				<article class="twfx-reveal inline-flex flex-col gap-4 basis-1/4 transition-all delay-0 duration-500 opacity-0 translate-y-1/4"
 					data-passive="opacity-0 translate-y-1/4"
-					data-active="opacity-100 translate-y-0"
-				>
+					data-active="opacity-100 translate-y-0">
 					<picture>
 						<source srcset="dist/320x240.svg" media="(min-width:768px)" />
 						<img loading="lazy" class="w-full h-auto" width="160" height="120" src="dist/160x120.svg" alt="" />
@@ -384,8 +378,7 @@
 				</article>
 				<article class="twfx-reveal inline-flex flex-col gap-4 basis-1/4 transition-all delay-100 duration-500 opacity-0 translate-y-1/4"
 					data-passive="opacity-0 translate-y-1/4"
-					data-active="opacity-100 translate-y-0"
-				>
+					data-active="opacity-100 translate-y-0">
 					<picture>
 						<source srcset="dist/320x240.svg" media="(min-width:768px)" />
 						<img loading="lazy" class="w-full h-auto" width="160" height="120" src="dist/160x120.svg" alt="" />
@@ -396,8 +389,7 @@
 				</article>
 				<article class="twfx-reveal inline-flex flex-col gap-4 basis-1/4 transition-all delay-200 duration-500 opacity-0 translate-y-1/4"
 					data-passive="opacity-0 translate-y-1/4"
-					data-active="opacity-100 translate-y-0"
-				>
+					data-active="opacity-100 translate-y-0">
 					<picture>
 						<source srcset="dist/320x240.svg" media="(min-width:768px)" />
 						<img loading="lazy" class="w-full h-auto" width="160" height="120" src="dist/160x120.svg" alt="" />
@@ -408,8 +400,7 @@
 				</article>
 				<article class="twfx-reveal inline-flex flex-col gap-4 basis-1/4 transition-all delay-300 duration-500 opacity-0 translate-y-1/4"
 					data-passive="opacity-0 translate-y-1/4"
-					data-active="opacity-100 translate-y-0"
-				>
+					data-active="opacity-100 translate-y-0">
 					<picture>
 						<source srcset="dist/320x240.svg" media="(min-width:768px)" />
 						<img loading="lazy" class="w-full h-auto" width="160" height="120" src="dist/160x120.svg" alt="" />
@@ -419,6 +410,26 @@
 					<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="#">Shop now</a></p>
 				</article>
 			</div>
+
+			<!-- Increment -->
+			<h2 id="increment" class="text-2xl md:text-4xl leading-none font-bold mb-4 pb-4 border-b border-black">Increment</h2>
+			<style>
+				.twfx-increment { -moz-appearance: textfield; -webkit-appearance: textfield; appearance: textfield; }
+				.twfx-increment::-webkit-inner-spin-button, .twfx-increment::-webkit-outer-spin-button { -webkit-appearance: none }
+			</style>
+			<form class="mb-10">
+				<label class="inline-grid grid-cols-[auto_1fr_auto] gap-x-0 gap-y-1">
+					<span class="col-span-3 text-center">QTY:</span>
+					<input class="twfx-increment order-2 w-24 h-12 bg-neutral-200 text-center" type="number" min="0" max="99" value="0"
+						data-decrement="flex items-center justify-center order-1 w-12 h-12 bg-neutral-200 hover:bg-neutral-100 after:content-['-']"
+						data-increment="flex items-center justify-center order-3 w-12 h-12 bg-neutral-200 hover:bg-neutral-100 after:content-['+']"
+					/>
+				</label>
+			</form>
+
+			<!-- Back to top -->
+
+			<p class="text-right"><a class="twfx-totop" href="#top">Back to top</a></p>
 
 		</section>
 

@@ -728,6 +728,10 @@ video {
   max-height: 75vh;
 }
 
+.min-h-\[15rem\] {
+  min-height: 15rem;
+}
+
 .w-10 {
   width: 2.5rem;
 }

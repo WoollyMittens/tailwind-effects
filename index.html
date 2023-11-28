@@ -27,8 +27,9 @@
 				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#tabs">Tab Strip</a>
 				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#reveal">Reveal</a>
 				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#increment">Increment</a>
+				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#defered">Deferred Content</a>
 			</nav>
-			<a class="underline text-white hover:opacity-70" href="vanilla.html">Vanilla Examples</a>
+			<a class="hidden underline text-white hover:opacity-70" href="vanilla.html">Vanilla Examples</a>
 		</header>
 
 		<!-- Hero Slider -->
@@ -422,10 +423,33 @@
 					<span class="col-span-3 text-center">QTY:</span>
 					<input class="twfx-increment order-2 w-24 h-12 bg-neutral-200 text-center" type="number" min="0" max="99" value="0"
 						data-decrement="flex items-center justify-center order-1 w-12 h-12 bg-neutral-200 hover:bg-neutral-100 after:content-['-']"
-						data-increment="flex items-center justify-center order-3 w-12 h-12 bg-neutral-200 hover:bg-neutral-100 after:content-['+']"
-					/>
+						data-increment="flex items-center justify-center order-3 w-12 h-12 bg-neutral-200 hover:bg-neutral-100 after:content-['+']"/>
 				</label>
 			</form>
+
+			<!-- Templated -->
+
+			<h2 id="deferred" class="text-2xl md:text-4xl leading-none font-bold mb-4 pb-4 border-b border-black">Deferred Content</h2>
+			<div id="example" class="twfx-deferred mb-10 min-h-[15rem]">
+				<template>
+					<article class="block md:grid grid-cols-[1fr_3fr] grid-rows-[auto_1fr] gap-x-4">
+						<img loading="lazy" class="w-full h-auto mb-4 md:mb-0 row-span-2" width="320" height="240" src="dist/320x240.svg" alt="" />
+						<p class="mb-4 self-start">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. 
+							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+						</p>
+						<p class="self-start">
+							Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+							Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+					</article>
+				</template>
+			</div>
+			<script>
+				document.getElementById('example').addEventListener('completed', evt => {
+					console.log('The deferred content has completed.');
+				});
+			</script>
 
 			<!-- Back to top -->
 

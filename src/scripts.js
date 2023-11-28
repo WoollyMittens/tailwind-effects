@@ -2,12 +2,36 @@
 
     localStorage.setItem('twfx', 'off');
 
-    // TODO: +/- number increment
-    // TODO: if the data-attribs are not defined, don't replace classes but apply the attributes directly for vanilla mode. To tidy this up, create getters and setters for the classname
-
     const tailwindProps = {};
 
     const tailwindEffects = {
+        '.twfx-deferred': class {
+            constructor(elem) {
+                this.observer.observe(elem);
+            }
+            get observer() {
+                if (!tailwindProps.deferredObserver) {
+                    tailwindProps.deferredObserver = new IntersectionObserver(
+                        this.update.bind(this), 
+                        {root:null, rootMargin:"0px 0px 0px 0px", threshold:[0]}
+                    );
+                }
+                return tailwindProps.deferredObserver;
+            }
+            set observer(value) {
+                tailwindProps.deferredObserver = value;
+            }
+            update(intersections, observer) {
+                for (let intersection of intersections) {
+                    if (intersection.isIntersecting) {
+                        let content = intersection.target.querySelector('template').content.cloneNode(true);
+                        intersection.target.appendChild(content);
+                        intersection.target.dispatchEvent(new Event('completed'));
+                        observer.unobserve(intersection.target);
+                    }
+                }
+            }
+        },
         '.twfx-direction': class {
             constructor(elem) {
                 if (!tailwindProps.directionObserver) {

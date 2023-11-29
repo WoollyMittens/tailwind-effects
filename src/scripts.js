@@ -5,7 +5,14 @@
     const tailwindProps = {};
 
     const tailwindEffects = {
-        '.twfx-deferred': class {
+        '.twfx-relocate': class {
+            constructor(elem) {
+                const dataDestination = elem.getAttribute('data-destination');
+                const destination = document.querySelector(dataDestination);
+                destination.appendChild(elem);
+            }
+        },
+        '.twfx-templated': class {
             constructor(elem) {
                 this.observer.observe(elem);
             }
@@ -21,13 +28,27 @@
             set observer(value) {
                 tailwindProps.deferredObserver = value;
             }
+            populate(template, target) {
+                let content = template.innerHTML;
+                for (let attribute of target.attributes) {
+                    var key  = String(attribute);
+                    console.log(content);
+                    content = content.replace(new RegExp(`\\{${attribute.nodeName}\\}`, 'g'), attribute.nodeValue);
+                }
+                template.innerHTML = content;
+                return template;
+            }
             update(intersections, observer) {
                 for (let intersection of intersections) {
                     if (intersection.isIntersecting) {
-                        let content = intersection.target.querySelector('template').content.cloneNode(true);
-                        intersection.target.appendChild(content);
-                        intersection.target.dispatchEvent(new Event('completed'));
-                        observer.unobserve(intersection.target);
+                        let target = intersection.target;
+                        let dataTemplate = target.getAttribute('data-template');
+                        let original = document.querySelector(dataTemplate) || target.querySelector('template');
+                        let template = original.cloneNode(true);
+                        let populated = this.populate(template, target);
+                        target.appendChild(populated.content);
+                        target.dispatchEvent(new Event('completed'));
+                        observer.unobserve(target);
                     }
                 }
             }
@@ -131,18 +152,17 @@
                 this.dataPassive = elem.getAttribute('data-passive');
                 this.dataActive = elem.getAttribute('data-active');
                 this.dataParent = elem.getAttribute('data-parent');
-                this.dataTarget = elem.getAttribute('data-target');
+                this.dataTarget = elem.getAttribute('data-target') || elem.getAttribute('href');
                 this.dataClosed = elem.getAttribute('data-closed');
                 this.dataOpen = elem.getAttribute('data-open');
-                const parent = this.parent(elem, this.dataParent);
-                const target = parent.querySelector(this.dataTarget);
+                const container = (this.dataParent) ? this.parent(elem, this.dataParent) : document.body;
+                const target = container.querySelector(this.dataTarget);
                 elem.addEventListener('click', this.toggle.bind(this, elem, target));
             }
             parent(elem, levels) {
                 if (isNaN(levels)) return document.querySelector(levels);
-                let parent = elem;
-                while(+levels--) { parent = parent.parentNode }
-                return parent;
+                while(+levels-- && !/body/i.test(elem.nodeName)) { elem = elem.parentNode }
+                return elem;
             }
             toggle(elem, target, evt) {
                 evt.preventDefault();

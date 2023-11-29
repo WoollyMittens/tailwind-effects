@@ -21,13 +21,14 @@
 			data-down="sticky -top-full md:-top-10"
 			data-up="sticky top-0">
 			<nav class="flex flex-wrap gap-x-4 gap-y">
-				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#carousel">Product Carousel</a>
+				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#carousel">Carousel</a>
 				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#readmore">Read More</a>
-				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#accordion">FAQ Accordion</a>
-				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#tabs">Tab Strip</a>
+				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#accordion">Accordion</a>
+				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#tabs">Tabs</a>
 				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#reveal">Reveal</a>
 				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#increment">Increment</a>
-				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#defered">Deferred Content</a>
+				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#templated">Templated</a>
+				<a class="twfx-scrollto underline text-white hover:opacity-70" href="#relocate">Relocate</a>
 			</nav>
 			<a class="hidden underline text-white hover:opacity-70" href="vanilla.html">Vanilla Examples</a>
 		</header>
@@ -427,31 +428,85 @@
 				</label>
 			</form>
 
-			<!-- Templated -->
+			<!-- Templated Content -->
 
-			<h2 id="deferred" class="text-2xl md:text-4xl leading-none font-bold mb-4 pb-4 border-b border-black">Deferred Content</h2>
-			<div id="example" class="twfx-deferred mb-10 min-h-[15rem]">
-				<template>
-					<article class="block md:grid grid-cols-[1fr_3fr] grid-rows-[auto_1fr] gap-x-4">
-						<img loading="lazy" class="w-full h-auto mb-4 md:mb-0 row-span-2" width="320" height="240" src="dist/320x240.svg" alt="" />
-						<p class="mb-4 self-start">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. 
-							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-						</p>
-						<p class="self-start">
-							Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-							Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						</p>
-					</article>
-				</template>
+			<h2 id="templated" class="text-2xl md:text-4xl leading-none font-bold mb-4 pb-4 border-b border-black">Templated Content</h2>
+			<div class="flex flex-col md:flex-row gap-4 mb-10">
+				<article id="example" class="twfx-templated inline-flex flex-col gap-4 basis-1/4"
+					data-template="#example-template" 
+					data-video="Oldj0WnmThtt4Fg9"
+					data-title="Lorem Ipsum"
+					data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."
+					data-link="#lorem-ipsum">
+				</article>
+				<article class="twfx-templated inline-flex flex-col gap-4 basis-1/4"
+					data-template="#example-template" 
+					data-video="Oldj0WnmThtt4Fg9"
+					data-title="Dolor Sit"
+					data-description="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+					data-link="#dolor-sit">
+				</article>
+				<article class="twfx-templated inline-flex flex-col gap-4 basis-1/4"
+					data-template="#example-template" 
+					data-video="Oldj0WnmThtt4Fg9"
+					data-title="Amet"
+					data-description="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+					data-link="#amet">
+				</article>
+				<article class="twfx-templated inline-flex flex-col gap-4 basis-1/4"
+					data-template="#example-template" 
+					data-video="Oldj0WnmThtt4Fg9"
+					data-title="Consectetur"
+					data-description="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+					data-link="#consectetur">
+				</article>
 			</div>
+			<template id="example-template">
+				<iframe class="w-full h-auto aspect-video" loading="lazy" width="308" height="174" src="https://www.youtube.com/embed/YE7VzlLtp-4?si={data-video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				<h3 class="text-xl md:text-2xl font-bold">{data-title}</h3>
+				<p class="text-sm md:text-base">{data-description}</p>
+				<p><a class="underline text-sm text-blue-500 hover:text-blue-300" href="{data-link}">Shop now</a></p>
+			</template>
 			<script>
 				document.getElementById('example').addEventListener('completed', evt => {
 					console.log('The deferred content has completed.');
 				});
 			</script>
 
-			<!-- Back to top -->
+			<!-- Relocate Container -->
+
+			<h2 id="relocate" class="text-2xl md:text-4xl leading-none font-bold mb-4 pb-4 border-b border-black">Relocate</h2>
+			<article class="relative">
+				<p>Provided under the <a href="#license" class="twfx-toggle underline" data-open="block" data-closed="hidden">MIT license</a></p>
+				<section id="license" class="twfx-relocate hidden fixed left-1/2 top-1/2 z-50 translate-x-[-50%] translate-y-[-50%] w-full max-w-[24rem] max-h-[100%] overflow-auto bg-white border border-black p-8 shadow-lg" data-destination="body">
+					<button class="twfx-toggle absolute right-2 top-2" data-target="#license" data-open="block" data-closed="hidden">x</button>
+					<h3 class="mb-4 font-bold text-lg">MIT License</h3>
+					<p class="mb-4 text-sm">Copyright (c) 2023 Maurice van Creij</p>
+					<p class="mb-4 text-sm">
+						Permission is hereby granted, free of charge, to any person obtaining a copy
+						of this software and associated documentation files (the "Software"), to deal
+						in the Software without restriction, including without limitation the rights
+						to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+						copies of the Software, and to permit persons to whom the Software is
+						furnished to do so, subject to the following conditions:
+					</p>
+					<p class="mb-4 text-sm">
+						The above copyright notice and this permission notice shall be included in all
+						copies or substantial portions of the Software.
+					</p>
+					<p class="mb-4 text-sm">
+						THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+						IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+						FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+						AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+						LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+						OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+						SOFTWARE.
+					</p>
+				</section>
+			</article>
+
+			<!-- Back to Top -->
 
 			<p class="text-right"><a class="twfx-totop" href="#top">Back to top</a></p>
 

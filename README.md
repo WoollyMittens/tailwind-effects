@@ -1,6 +1,6 @@
 # Tailwind Effects
 
-A library to tie scripted events to tailwind classes.
+A library to tie scripted events to tailwind classes - [Demo](https://woollymittens.github.io/tailwind-effects/).
 
 ## Sticky Nav
 

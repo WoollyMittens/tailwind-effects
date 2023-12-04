@@ -12,11 +12,13 @@ Shows a sticky navigation bar only on the way back up.
     data-up="sticky top-0">
 ```
 
-**.data-down: {className}** - Lorem ipsum dolor sit amet.
+**data-down: {className}** - Positioning of the toolbar when scrolling down the page.
 
-**data-up: {className}** - Lorem ipsum dolor sit amet.
+**data-up: {className}** - Positioning of the toolbar when scrolling up the page.
 
-## Hero Slider
+## Carousels
+
+### Hero Slider
 
 A slideshow with touch controls.
 
@@ -37,31 +39,7 @@ A slideshow with touch controls.
     <div class="flex w-full h-full overflow-auto snap-x snap-mandatory">
 ```
 
-**.data-slider: {querySelector}** - Lorem ipsum dolor sit amet.
-
-**.data-slides: {querySelector}** - Lorem ipsum dolor sit amet.
-
-**data-nav: {className}** - Lorem ipsum dolor sit amet.
-
-**data-nav-prev: {className}** - Lorem ipsum dolor sit amet.
-
-**data-nav-next: {className}** - Lorem ipsum dolor sit amet.
-
-**data-nav-passive: {className}** - Lorem ipsum dolor sit amet.
-
-**data-nav-active: {className}** - Lorem ipsum dolor sit amet.
-
-**data-dots: {className}** - Lorem ipsum dolor sit amet.
-
-**data-dot: {className}** - Lorem ipsum dolor sit amet.
-
-**data-dot-passive: {className}** - Lorem ipsum dolor sit amet.
-
-**data-dot-active: {className}** - Lorem ipsum dolor sit amet.
-
-**data-idle: {integer}** - Lorem ipsum dolor sit amet.
-
-## Product Carousel
+### Product Carousel
 
 A product carousel with touch controls.
 
@@ -81,27 +59,44 @@ A product carousel with touch controls.
     <div class="flex w-full overflow-auto snap-x snap-mandatory">
 ```
 
-**data-slider: {querySelector}** - Lorem ipsum dolor sit amet.
+### Callouts
 
-**data-slides: {querySelector}** - Lorem ipsum dolor sit amet.
+Scrolls horizontally to save space on mobile.
 
-**data-nav: {className}** - Lorem ipsum dolor sit amet.
+```html
+<div class="twfx-carousel mb-10"
+    data-slider=":scope>div"
+    data-slides=":scope>div>article"
+    data-dots="flex md:hidden justify-center items-center gap-2 px-4 h-8"
+    data-dot="bg-black opacity-25 w-3 h-3 rounded-full overflow-hidden indent-5"
+    data-dot-passive="opacity-25 w-3 h-3"
+    data-dot-active="opacity-50 w-4 h-4">
+    <div class="flex w-full overflow-auto gap-4 snap-x snap-mandatory">
+```
 
-**data-nav-prev: {className}** - Lorem ipsum dolor sit amet.
+**data-slider: {querySelector}** - The container for the slides to scroll around in.
 
-**data-nav-next: {className}** - Lorem ipsum dolor sit amet.
+**data-slides: {querySelector}** - The individual slides.
 
-**data-nav-passive: {className}** - Lorem ipsum dolor sit amet.
+**data-nav: {className}** - The common styling for both direction arrows.
 
-**data-nav-active: {className}** - Lorem ipsum dolor sit amet.
+**data-nav-prev: {className}** - Styling for the back arrow.
 
-**data-dots: {className}** - Lorem ipsum dolor sit amet.
+**data-nav-next: {className}** - Styling for the forward arrow.
 
-**data-dot: {className}** - Lorem ipsum dolor sit amet.
+**data-nav-passive: {className}** - Styling for deactivated arrows.
 
-**data-dot-passive: {className}** - Lorem ipsum dolor sit amet.
+**data-nav-active: {className}** - Styling for actice arrows.
 
-**data-dot-active: {className}** - Lorem ipsum dolor sit amet.
+**data-dots: {className}** - Styling for the page indicator dots.
+
+**data-dot: {className}** - Styling for an individual dot.
+
+**data-dot-passive: {className}** - Styling for a deactivated dot.
+
+**data-dot-active: {className}** - Styling for an activated dot.
+
+**data-idle: {number}** - The time in miliseconds between automatic slide transitions if left idle.
 
 ## Read More
 
@@ -117,17 +112,17 @@ Reveals additional content.
     data-open="block">
 ```
 
-**data-passive: {className}** - Lorem ipsum dolor sit amet.
+**data-passive: {className}** - Styling when the link is unused.
 
-**data-active: {className}** - Lorem ipsum dolor sit amet.
+**data-active: {className}** - Styling after the link is used.
 
-**data-parent: {integer}** - Lorem ipsum dolor sit amet.
+**data-parent: {number}** - The amount of levels up to the common container.
 
-**data-target: {querySelector}** - Lorem ipsum dolor sit amet.
+**data-target: {querySelector}** - A selector for the unexpanded content down from the common container.
 
-**data-closed: {className}** - Lorem ipsum dolor sit amet.
+**data-closed: {className}** - Styling for the unrevealed content.
 
-**data-open: {className}** - Lorem ipsum dolor sit amet.
+**data-open: {className}** - Styling for the revealed content.
 
 ## FAQ Accordion
 
@@ -143,17 +138,17 @@ Toggles question and answer sections.
     data-open="overflow-auto max-h-[75vh]">
 ```
 
-**data-title: {querySelector}** - Lorem ipsum dolor sit amet.
+**data-title: {querySelector}** - A selector for the title container.
 
-**data-passive: {className}** - Lorem ipsum dolor sit amet.
+**data-passive: {className}** - Styling for the passive state of the title.
 
-**data-active: {className}** - Lorem ipsum dolor sit amet.
+**data-active: {className}** - Styling for the active state of the title.
 
-**data-descriptions: {querySelector}** - Lorem ipsum dolor sit amet.
+**data-descriptions: {querySelector}** - A selector for the description containers.
 
-**data-closed: {className}** - Lorem ipsum dolor sit amet.
+**data-closed: {className}** - Styling for the unrevealed description.
 
-**data-open: {className}** - Lorem ipsum dolor sit amet.
+**data-open: {className}** - Styling for the revealed description.
 
 ## Tab Strip
 
@@ -170,46 +165,19 @@ Selectively shows tabbed content.
     data-exclusive>
 ```
 
-**data-title: {querySelector}** - Lorem ipsum dolor sit amet.
+**data-title: {querySelector}** - A selector for the tab titles.
 
-**data-passive: {className}** - Lorem ipsum dolor sit amet.
+**data-passive: {className}** - Styling for the passive state of the tab title.
 
-**data-active: {className}** - Lorem ipsum dolor sit amet.
+**data-active: {className}** - Styling for the activated state of he tab title.
 
-**data-descriptions: {querySelector}** - Lorem ipsum dolor sit amet.
+**data-descriptions: {querySelector}** - A selector for the tabbed content.
 
-**data-closed: {className}** - Lorem ipsum dolor sit amet.
+**data-closed: {className}** - Styling for the hidden state of the tabbed content.
 
-**data-open: {className}** - Lorem ipsum dolor sit amet.
+**data-open: {className}** - Styling for the revealed state of the tabbed conttent.
 
-**data-exclusive: {flag}** - Lorem ipsum dolor sit amet.
-
-## Callouts
-
-Scrolls horizontally to save space on mobile.
-
-```html
-<div class="twfx-carousel mb-10"
-    data-slider=":scope>div"
-    data-slides=":scope>div>article"
-    data-dots="flex md:hidden justify-center items-center gap-2 px-4 h-8"
-    data-dot="bg-black opacity-25 w-3 h-3 rounded-full overflow-hidden indent-5"
-    data-dot-passive="opacity-25 w-3 h-3"
-    data-dot-active="opacity-50 w-4 h-4">
-    <div class="flex w-full overflow-auto gap-4 snap-x snap-mandatory">
-```
-
-**data-slider: {querySelector}** - Lorem ipsum dolor sit amet.
-
-**data-slides: {querySelector}** - Lorem ipsum dolor sit amet.
-
-**data-dots: {className}** - Lorem ipsum dolor sit amet.
-
-**data-dot: {className}** - Lorem ipsum dolor sit amet.
-
-**data-dot-passive: {className}** - Lorem ipsum dolor sit amet.
-
-**data-dot-active: {className}** - Lorem ipsum dolor sit amet.
+**data-exclusive: {flag}** - A flag that allows only one tab to be open at a time.
 
 ## Reveal
 
@@ -221,9 +189,9 @@ An animated reveal as soon as content enters the view.
     data-active="opacity-100 translate-y-0">
 ```
 
-**data-passive: {className}** - Lorem ipsum dolor sit amet.
+**data-passive: {className}** - Styling for the unrevealed state.
 
-**data-active: {className}** - Lorem ipsum dolor sit amet.
+**data-active: {className}** - Styling for the revealed state.
 
 ## Increment
 
@@ -235,9 +203,15 @@ Increment a quantity input counter.
     data-increment="flex items-center justify-center order-3 w-12 h-12 bg-neutral-200 hover:bg-neutral-100 after:content-['+']"/>
 ```
 
-**data-decrement: {className}** - Lorem ipsum dolor sit amet.
+**value: {number}** - Starting value of the counter.
 
-**data-increment: {className}** - Lorem ipsum dolor sit amet.
+**min: {number}** - Minimum value of the counter.
+
+**max: {number}** - Maximum value of the counter.
+
+**data-decrement: {className}** - Styling for the buton that decreases the counter.
+
+**data-increment: {className}** - Styling for the button that inceased the counter.
 
 ## Templated Content
 
@@ -252,9 +226,9 @@ Populates a section only after it enters the view.
 </template>
 ```
 
-**data-template: {querySelector}** - Lorem ipsum dolor sit amet.
+**data-template: {querySelector}** - A selector to the template for the content.
 
-**data-keyword: {string}** - Lorem ipsum dolor sit amet.
+**data-keyword: {string}** - Any data attribute to populate the templated content with.
 
 ## Relocate Container
 
@@ -265,7 +239,7 @@ Moves a container to a different place in the document.
     data-destination="body">
 ```
 
-**data-destination: {querySelector}** - Lorem ipsum dolor sit amet.
+**data-destination: {querySelector}** - A selector for the destination container.
 
 ## Back to Top
 
@@ -276,7 +250,7 @@ An animated scroll back to the top (or anywhere else).
 <a class="twfx-scrollto" href="#carousel">
 ```
 
-**href: {querySelector}** - Lorem ipsum dolor sit amet.
+**href: {querySelector}** - A selector for the container to scroll into view.
 
 ## References
 

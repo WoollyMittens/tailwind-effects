@@ -1,9 +1,12 @@
 (function () {
+
     "use strict";
 
 	localStorage.setItem("twfx", "off");
 
 	const tailwindProps = {};
+	
+	const tailwindRegister = {};
 
 	class Intersections {
 		constructor(options) {
@@ -63,7 +66,7 @@
 		subtree: false,
 	});
 
-	const tailwindEffects = {
+	const tailwindBehaviors = {
 		".twfx-relocate": class {
 			constructor(elem) {
 				const dataDestination = elem.getAttribute("data-destination");
@@ -94,7 +97,7 @@
                     this.update(elem);
                 }
             }
-            update(elem) {
+            update(elem, evt) {
                 this.populate(elem);
                 elem.dispatchEvent(new Event("completed"));
             }
@@ -395,17 +398,33 @@
 		},
 	};
 
-	function tailwindHandler(elems, effect) {
+	function tailwindHandler(name, elems, effect) {
 		for (let elem of elems) {
-			new effect(elem);
+			if (!tailwindRegister[name].includes(elem)) {
+				new effect(elem);
+				tailwindRegister[name].push(elem);
+			}
 		}
 	}
 
 	function tailwindParser(behaviors) {
 		for (let name in behaviors) {
-			tailwindHandler(document.querySelectorAll(name), behaviors[name]);
+			tailwindRegister[name] = tailwindRegister[name] || [];
+			tailwindHandler(name, document.querySelectorAll(name), behaviors[name]);
 		}
 	}
 
-	tailwindParser(tailwindEffects);
+	function tailwindWatcher() {
+		clearTimeout(tailwindProps.timeout);
+		tailwindProps.timeout = setTimeout(tailwindParser.bind(this, tailwindBehaviors), 100);
+	}
+
+	new MutationObserver(tailwindWatcher.bind(this)).observe(document.body, { 
+		attributes: false, 
+		childList: true, 
+		subtree: true 
+	});
+	
+	tailwindWatcher();
+
 })();

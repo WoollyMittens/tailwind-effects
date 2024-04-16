@@ -1,3 +1,6 @@
+import { IntersectionEvents } from "../vendor/intersection-events.js";
+import { MutationEvents } from "../vendor/mutation-events.js";
+
 (function tailwindEffects () {
 
     "use strict";
@@ -8,59 +11,13 @@
 	
 	const tailwindRegister = {};
 
-	class Intersections {
-		constructor(options) {
-			this.options = options;
-			this.observer = new IntersectionObserver(this.handle.bind(this), this.options);
-		}
-		watch(elem) {
-			this.observer.observe(elem);
-		}
-		handle(intersections, observer) {
-			for (let intersection of intersections) {
-				let evt = new CustomEvent("visible", {
-					bubbles: true,
-					cancelable: false,
-					detail: {
-						intersection: intersection,
-						observer: observer,
-					},
-				});
-				intersection.target.dispatchEvent(evt);
-			}
-		}
-	}
-
-	const tailwindIntersections = new Intersections({
+	const tailwindIntersections = new IntersectionEvents({
 		root: null,
 		rootMargin: "0px 0px 0px 0px",
 		threshold: [0],
 	});
 
-	class Mutations {
-		constructor(options) {
-			this.options = options;
-			this.observer = new MutationObserver(this.handle.bind(this));
-		}
-		watch(elem, options) {
-			this.observer.observe(elem, options || this.options);
-		}
-		handle(mutations, observer) {
-			for (let mutation of mutations) {
-				let evt = new CustomEvent("change", {
-					bubbles: true,
-					cancelable: false,
-					detail: {
-						mutation: mutation,
-						observer: observer,
-					},
-				});
-				mutation.target.dispatchEvent(evt);
-			}
-		}
-	}
-
-	const tailwindMutations = new Mutations({
+	const tailwindMutations = new MutationEvents({
 		attributes: true,
 		childList: false,
 		subtree: false,

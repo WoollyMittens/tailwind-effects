@@ -1,5 +1,6 @@
 import { IntersectionEvents } from "../vendor/intersection-events.js";
 import { MutationEvents } from "../vendor/mutation-events.js";
+import { DragScroller } from "../vendor/drag-scroller.js";
 
 (function tailwindEffects () {
 
@@ -220,35 +221,16 @@ import { MutationEvents } from "../vendor/mutation-events.js";
 				this.prevButton.setAttribute("class", `twfx-prev ${this.dataNav} ${this.dataNavPrev}`);
 				this.prevButton.addEventListener("click", this.cycle.bind(this, -this.slidesPerPage));
 				if (this.dataNav) this.scroller.parentNode.appendChild(this.prevButton);
-				this.scroller.addEventListener("mousedown", this.startDrag.bind(this));
-				this.scroller.addEventListener("mousemove", this.handleDrag.bind(this));
-				this.scroller.addEventListener("mouseup", this.endDrag.bind(this));
-				this.scroller.addEventListener("touchstart", this.endIdle.bind(this), { passive: true });
-				this.scroller.addEventListener("scroll", this.manualScroll.bind(this), { passive: true });
+				this.dragScroller = new DragScroller({
+					container: this.scroller,
+					increments: this.slides,
+					snap: { behavior: "smooth", block: "nearest", inline: "center" },
+					scrollHandler: this.manualScroll.bind(this),
+					interactionHandler: this.endIdle.bind(this)
+				});
 				this.redraw(this.slides[0]);
 				this.idleDirection = this.slidesPerPage;
 				this.idleTimeout = this.dataIdle ? setInterval(this.idle.bind(this), +this.dataIdle) : null;
-			}
-			startDrag(evt) {
-				if (window.matchMedia("(pointer:fine)")) this.previous = evt.clientX;
-			}
-			handleDrag(evt) {
-				clearTimeout(this.idleTimeout);
-				if (this.previous !== null) {
-					evt.preventDefault(evt);
-					let current = evt.clientX;
-					let offset = current - this.previous;
-					this.scroller.scrollBy({ left: -offset });
-					this.distance += offset;
-					this.previous = current;
-				}
-			}
-			endDrag(evt) {
-				this.previous = null;
-				this.focus();
-				setTimeout(() => {
-					this.distance = 0;
-				}, 1000);
 			}
 			endIdle(evt) {
 				clearTimeout(this.idleTimeout);
